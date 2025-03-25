@@ -172,3 +172,38 @@ joined_numbers = "-".join(string_numbers) # joined_numbers will be "1-2-3-4-5"
 # Joining a tuple:
 colors = ("red", "green", "blue")
 color_string = " and ".join(colors) # color_string will be "red and green and blue"
+
+#Fifth commit
+. .startswith(prefix) (Starts With)
+
+•   Description: Checks if a string starts with a prefix.
+•   Example (Python):
+    
+    text = "Hello world"
+    starts = text.startswith("Hello")  # starts is True
+    
+
+. .endswith(suffix) (Ends With)
+
+•   Description: Checks if a string ends with a suffix.
+•   Example (Python):
+    
+    text = "Hello world"
+    ends = text.endswith("world")  # ends is True
+ .lstrip() (Left Strip)
+
+•   Description: Removes leading whitespace.
+•   Example (Python):
+    
+    text = "   Hello"
+    stripped = text.lstrip()  # stripped is "Hello"
+    
+
+.rstrip() (Right Strip)
+
+•   Description: Removes trailing whitespace.
+•   Example (Python):
+    
+    text = "Hello   "
+    stripped = text.rstrip()  # stripped is "Hello"
+    
