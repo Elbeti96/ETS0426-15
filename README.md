@@ -206,4 +206,86 @@ color_string = " and ".join(colors) # color_string will be "red and green and bl
     
     text = "Hello   "
     stripped = text.rstrip()  # stripped is "Hello"
+#Sixth commit
+
+ .partition(separator)
+
+•  Explanation: The .partition(separator) method divides a string into three parts based on the first occurrence of a specified separator. It returns a tuple containing: (1) the part before the separator, (2) the separator itself, and (3) the part after the separator. If the separator is not found, it returns a tuple containing the original string, followed by two empty strings.
+
+•  Purpose: To split a string into three distinct parts using a separator, making it easy to extract specific segments of the string.
+
+•  How it Works:
+
+  1. The method searches for the first occurrence of the separator within the string.
+  2. If the separator is found:
+    *  The string before the separator is the first element of the tuple.
+    *  The separator itself is the second element of the tuple.
+    *  The string after the separator is the third element of the tuple.
+  3. If the separator is not found:
+    *  The original string is the first element of the tuple.
+    *  The second and third elements of the tuple are empty strings.
+
+•  Important: It only splits at the first occurrence. For splitting at all occurrences, use .split().
+
+•  Example (Python):
+
+    text = "Hello, world!"
+    parts = text.partition(", ")  # parts will be ('Hello', ', ', 'world!')
+
+    text2 = "filename.txt"
+    parts2 = text2.partition(".") # parts2 will be ('filename', '.', 'txt')
+
+    text3 = "No separator here"
+    parts3 = text3.partition(",")  # parts3 will be ('No separator here', '', '')
+
+ .center(width, fillchar)
+
+•  Explanation: The .center(width, fillchar) method centers a string within a field of a specified width. It pads the string with the specified fill character (default is space) on both sides to reach the desired width.
+
+•  Purpose: To format a string by centering it within a fixed-width field, often used for creating formatted output or aligning text.
+
+•  How it Works:
+
+  1. Calculates the amount of padding needed on each side of the string to reach the specified width.
+  2. If width is less than or equal to the length of the string, it returns the original string unchanged.
+  3. Otherwise, it creates a new string by padding the original string with the fillchar on both sides, attempting to distribute the padding equally. If the padding can't be perfectly equal, the extra character is typically added to the right side.
+
+•  fillchar (optional): The character used for padding. If omitted, it defaults to a space (" ").
+
+•  Example (Python):
+
+    text = "Hello"
+    centered_text = text.center(10)  # centered_text will be "  Hello   "
+    centered_text2 = text.center(15, "*") # centered_text2 will be "****Hello*****"
+    centered_text3 = text.center(3)  # centered_text3 will be "Hello" (width is too small)
+
+ .zfill(width)
+
+•  Explanation: The .zfill(width) method pads a numeric string on the left with leading zeros to reach a specified width. It's typically used for formatting numbers with a consistent number of digits.
+
+•  Purpose: To pad a numeric string with leading zeros, ensuring a fixed width for consistent formatting.
+
+•  How it Works:
+
+  1. If the string starts with a plus or minus sign, it preserves the sign.
+  2. Calculates the amount of padding needed to reach the specified width.
+  3. Adds leading zeros to the left of the number (or to the right of the sign, if present) until the string reaches the desired width.
+  4. If the width is less than or equal to the length of the string, it returns the original string.
+
+•  Example (Python):
+
+    number = "5"
+    padded_number = number.zfill(3)  # padded_number will be "005"
+
+    number2 = "123"
+    padded_number2 = number2.zfill(5) # padded_number2 will be "00123"
+
+    number3 = "-42"
+    padded_number3 = number3.zfill(5) # padded_number3 will be "-0042"
+
+    number4 = "+10"
+    padded_number4 = number4.zfill(4) # padded_number4 will be "+010"
+
+    number5 = "12345"
+    padded_number5 = number5.zfill(3) # padded_number5 will be "12345" (width too small)
     
