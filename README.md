@@ -288,4 +288,107 @@ color_string = " and ".join(colors) # color_string will be "red and green and bl
 
     number5 = "12345"
     padded_number5 = number5.zfill(3) # padded_number5 will be "12345" (width too small)
+
+#Seventh Commit
+Alright, here are three more string methods, complete with explanations and README entries:
+
+1. isnumeric()
+
+•   Explanation: The isnumeric() method checks whether all characters in a string are numeric characters. Numeric characters include digits, fractions, superscripts, subscripts, and other characters that represent numeric values. This method is more inclusive than isdigit().
+
+•   Purpose: To validate if a string represents a numeric value, considering a broader range of numeric characters beyond simple digits.
+
+•   How it Works:
+
+    1.  The method iterates through each character in the string.
+    2.  It checks if each character is a numeric character as defined by Unicode. This includes digits ('0' - '9'), as well as characters like fraction symbols (e.g., '½'), superscript digits (e.g., '²'), and other Unicode numeric characters.
+    3.  If all characters are numeric, it returns True.
+    4.  If any character is not numeric, it returns False.
+    5.  Empty strings return False.
+
+•   Important Notes:
+    •   This method does not consider characters like '.' (decimal point) or '-' (negative sign) as numeric. So, "12.3" and "-42" will return False.
+    •   isnumeric() is different from isdigit(). isdigit() only returns True for characters that are simple digits (0-9).
+
+•   Example (Python):
+
+    text1 = "12345"
+    result1 = text1.isnumeric()  # result1 will be True
+
+    text2 = "½"  # Fraction one-half
+    result2 = text2.isnumeric()  # result2 will be True
+
+    text3 = "12.3"
+    result3 = text3.isnumeric()  # result3 will be False
+
+    text4 = "abc"
+    result4 = text4.isnumeric()  # result4 will be False
+
+    text5 = ""
+    result5 = text5.isnumeric()  # result5 will be False
+
+2. isdecimal()
+
+•   Explanation: The isdecimal() method checks if all characters in a string are decimal characters. Decimal characters are those that can be used to form numbers in base-10, such as digits 0-9. This method is more restrictive than isnumeric() and isdigit().
+
+•   Purpose: To specifically validate if a string contains only characters that are part of the standard decimal number system.
+
+•   How it Works:
+
+    1.  The method iterates through each character in the string.
+    2.  It checks if each character is a decimal character according to Unicode. This primarily includes the digits '0' through '9'.
+    3.  If all characters are decimal, it returns True.
+    4.  If any character is not a decimal, it returns False.
+    5.  Empty strings return False.
+
+•   Important Notes:
+
+    •   This method returns False for characters like fraction symbols, superscript digits, and other characters that isnumeric() might consider numeric.
+    •   isdecimal() is different from isdigit() which also return True for special digits like superscripted numbers.
+
+•   Example (Python):
+
+    text1 = "12345"
+    result1 = text1.isdecimal()  # result1 will be True
+
+    text2 = "½"  # Fraction one-half
+    result2 = text2.isdecimal()  # result2 will be False
+
+    text3 = "12.3"
+    result3 = text3.isdecimal()  # result3 will be False
+
+    text4 = "abc"
+    result4 = text4.isdecimal()  # result4 will be False
+
+    text5 = ""
+    result5 = text5.isdecimal()  # result5 will be False
+
+3. expandtabs(tabsize=8)
+
+•  Explanation: The expandtabs(tabsize=8) method replaces tab characters (\t) in a string with spaces. The tabsize argument specifies the number of spaces that each tab character should be expanded to. If tabsize is not provided, it defaults to 8.
+
+•  Purpose: To convert tab characters into spaces, enabling consistent formatting and alignment in strings, especially when dealing with text that might have been created with different tab settings.
+
+•  How it Works:
+
+  1. The method scans the string for tab characters (\t).
+  2. For each tab character found:
+    *  It calculates the number of spaces needed to reach the next tab stop. Tab stops are typically set at intervals of tabsize.
+    *  It replaces the tab character with the calculated number of spaces.
+
+•  tabsize (optional): An integer specifying the tab size (number of spaces per tab). Defaults to 8.
+
+•  Example (Python):
+
+    text1 = "Hello\tworld"
+    result1 = text1.expandtabs()  # result1 will be "Hello   world" (tabsize=8)
+
+    text2 = "Column1\tColumn2\tColumn3"
+    result2 = text2.expandtabs(4) # result2 will be "Column1 Column2 Column3" (tabsize=4)
+
+    text3 = "A\tB\nC\tD" #multiline string
+    result3 = text3.expandtabs(2)
+    print(result3)
+    #A B
+    #C D
     
