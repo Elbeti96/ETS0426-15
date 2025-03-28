@@ -391,4 +391,119 @@ Alright, here are three more string methods, complete with explanations and READ
     print(result3)
     #A B
     #C D
+
+#Eighth commit
+. isdigit()
+
+•   Explanation: The isdigit() method checks if all characters in a string are digits (0-9). It is more restrictive than isnumeric() and includes only basic digit characters.
+
+•   Purpose: To validate if a string contains only the basic numeric digits (0 through 9).
+
+•   How it Works:
+
+    1.  The method iterates through each character in the string.
+    2.  It checks if each character is one of the digits '0', '1', '2', '3', '4', '5', '6', '7', '8', or '9'.
+    3.  If all characters are digits, it returns True.
+    4.  If any character is not a digit, it returns False.
+    5.  Empty strings return False.
+
+•   Important Notes:
+
+    •   This method returns False for characters like fraction symbols, superscript digits, decimal points, or negative signs.
+    •   isdigit() is different from isnumeric() and isdecimal(). isdigit() returns True for superscripted numbers which isdecimal does not.
+
+•   Example (Python):
+
+    text1 = "12345"
+    result1 = text1.isdigit()  # result1 will be True
+
+    text2 = "123²" # Contains a superscript digit
+    result2 = text2.isdigit()  # result2 will be True
+
+    text3 = "½"  # Fraction one-half
+    result3 = text3.isdigit()  # result3 will be False
+
+    text4 = "12.3"
+    result4 = text4.isdigit()  # result4 will be False
+
+    text5 = "abc"
+    result5 = text5.isdigit()  # result5 will be False
+
+    text6 = ""
+    result6 = text6.isdigit()  # result6 will be False
+
+ isalnum()
+
+•  Explanation: The isalnum() method checks if all characters in a string are alphanumeric, meaning either letters or digits. It returns True if the string is not empty and all characters are alphanumeric; otherwise, it returns False.
+
+•  Purpose: To validate if a string contains only letters and numbers.
+
+•  How it Works:
+
+  1. The method iterates through each character in the string.
+  2. It checks if each character is either a letter (a-z, A-Z) or a digit (0-9).
+  3. If all characters are alphanumeric, it returns True.
+  4. If any character is not alphanumeric, or if the string is empty, it returns False.
+
+•  Important Notes:
+
+  •  This method returns False for strings containing whitespace, punctuation, or symbols.
+
+•  Example (Python):
+
+    text1 = "HelloWorld123"
+    result1 = text1.isalnum()  # result1 will be True
+
+    text2 = "HelloWorld 123" # Contains space
+    result2 = text2.isalnum()  # result2 will be False
+
+    text3 = "HelloWorld!" # Contains a symbol
+    result3 = text3.isalnum()  # result3 will be False
+
+    text4 = "12345"
+    result4 = text4.isalnum()  # result4 will be True
+
+    text5 = "abc"
+    result5 = text5.isalnum()  # result5 will be True
+
+    text6 = ""
+    result6 = text6.isalnum()  # result6 will be False
+
+ isidentifier()
+
+•  Explanation: The isidentifier() method checks if a string is a valid identifier according to the rules of the programming language. In Python, a valid identifier must start with a letter (a-z, A-Z) or an underscore (_), and can contain letters, digits, or underscores.
+
+•  Purpose: To validate if a string can be used as a variable name, function name, or other identifier in your code.
+
+•  How it Works:
+
+  1. The method checks if the string starts with a letter or an underscore.
+  2. It then checks if all remaining characters are letters, digits, or underscores.
+  3. If both conditions are met, it returns True.
+  4.  It also checks whether the string is a reserved keyword, in which case it returns False.
+  5. If the string is empty or does not meet the identifier rules, it returns False.
+
+•  Important Notes:
+
+  •  The rules for valid identifiers can vary slightly between programming languages. This explanation and the example are based on Python's identifier rules.
+
+•  Example (Python):
+
+    text1 = "my_variable"
+    result1 = text1.isidentifier()  # result1 will be True
+
+    text2 = "_my_variable"
+    result2 = text2.isidentifier()  # result2 will be True
+
+    text3 = "123variable" # Starts with a digit
+    result3 = text3.isidentifier()  # result3 will be False
+
+    text4 = "my-variable" # Contains a hyphen
+    result4 = text4.isidentifier()  # result4 will be False
+
+    text5 = "if" # Reserved Keyword
+    result5 = text5.isidentifier() # result5 will be False
+
+    text6 = ""
+    result6 = text6.isidentifier()  # result6 will be False
     
