@@ -139,3 +139,81 @@
 •  Example (Python):
     my_list = [1, 2, 3]
     my_list.clear()  # my_list will be []
+#Third commit 
+
+1. list.copy()
+
+•  Explanation: The copy() method creates a shallow copy of a list. This means it creates a new list with the same elements as the original list. Modifying the copy will not affect the original list, and vice versa (unless the list contains mutable objects).
+
+•  Purpose: To create an independent copy of a list, allowing you to modify the copy without altering the original data.
+
+•  How it Works:
+
+  1. The method creates a new list object in memory.
+  2. It iterates through the elements of the original list.
+  3. It copies each element to the new list.
+  4. The new list is returned.
+
+•  Important Note: This is a shallow copy. If the list contains mutable objects (e.g., lists, dictionaries), changes to those objects within the copy will affect the original list (and vice-versa) because they both still reference the same underlying mutable objects. For a deep copy, use copy.deepcopy().
+
+•  Example (Python):
+
+    original_list = [1, 2, [3, 4]]
+    copied_list = original_list.copy()
+
+    copied_list[0] = 5  # Only modifies copied_list
+    copied_list[2][0] = 6 # Modifies both lists
+
+    print(original_list)  # Output: [1, 2, [6, 4]]
+    print(copied_list)    # Output: [5, 2, [6, 4]]
+
+2. list.reverse()
+
+•   Explanation: The reverse() method reverses the order of elements in a list in place. It modifies the original list directly and does not return a new list.
+
+•   Purpose: To efficiently reverse the order of elements in a list without creating a new list object.
+
+•   How it Works:
+
+    1.  The method iterates through the list, swapping the first element with the last, the second with the second-to-last, and so on, until it reaches the middle of the list.
+    2.  The list is modified in-place.
+
+•   Example (Python):
+
+    my_list = [1, 2, 3, 4, 5]
+    my_list.reverse()  # my_list will be [5, 4, 3, 2, 1]
+
+3. list.sort(key=None, reverse=False)
+
+•  Explanation: The sort() method sorts the elements of a list in place. It modifies the original list directly. The sorting can be customized using the key and reverse arguments.
+
+•  Purpose: To arrange the elements of a list in a specific order (ascending or descending).
+
+•  How it Works:
+
+  1. The method sorts the elements of the list based on their default comparison (usually numerical or alphabetical order).
+  2. The key argument can be a function that takes an element as input and returns a value to use for sorting. This is useful for sorting based on a specific attribute of the elements.
+  3. The reverse argument (a boolean) specifies whether to sort in ascending order (False, default) or descending order (True).
+  4. The list is modified in-place.
+
+•  Arguments:
+
+  •  key (optional): A function that serves as a key for the sort comparison.
+  •  reverse (optional): A boolean value. If True, the list is sorted in descending order.
+
+•  Example (Python):
+
+    my_list = [3, 1, 4, 1, 5, 9, 2, 6]
+    my_list.sort()  # my_list will be [1, 1, 2, 3, 4, 5, 6, 9]
+
+    my_list = ["banana", "apple", "cherry"]
+    my_list.sort()  # my_list will be ["apple", "banana", "cherry"]
+
+    my_list.sort(reverse=True) #Sorts in reverse order
+    # my_list will be ['cherry', 'banana', 'apple']
+
+    def get_length(item):
+        return len(item)
+
+    my_list = ["apple", "banana", "kiwi"]
+    my_list.sort(key=get_length) # my_list will be ['kiwi', 'apple', 'banana']
