@@ -1,4 +1,4 @@
-#First commit
+# First commit
 1. list.append(element)
 
 •   Explanation: The append() method adds a single element to the end of a list. It modifies the original list directly.
@@ -61,7 +61,7 @@
     my_list.insert(0, "start") # my_list will be ["start", 1, "hello", 2, 3]
 
     my_list.insert(len(my_list), "end") # my_list will be ["start", 1, "hello", 2, 3, "end"] (equivalent to append)
-#Second commit
+# Second commit
 1. list.remove(element)
 
 •  Explanation: The remove() method removes the first occurrence of a specified element from a list. It modifies the list directly. If the element is not found, it raises a ValueError.
@@ -139,7 +139,7 @@
 •  Example (Python):
     my_list = [1, 2, 3]
     my_list.clear()  # my_list will be []
-#Third commit 
+# Third commit 
 
 1. list.copy()
 
@@ -217,3 +217,110 @@
 
     my_list = ["apple", "banana", "kiwi"]
     my_list.sort(key=get_length) # my_list will be ['kiwi', 'apple', 'banana']
+# Fourth commit
+
+1. list.index(element, start=0, end=None)
+
+•  Explanation: The index() method returns the index (position) of the first occurrence of a specified element in the list. You can optionally specify a start and end index to limit the search to a specific portion of the list. If the element is not found, it raises a ValueError.
+
+•  Purpose: To efficiently locate the position of a specific item in a list, with the option to restrict the search to a subset of the list.
+
+•  How it Works:
+
+  1. The method searches the list (or the specified slice of the list) from left to right for the element.
+  2. If the element is found, the index of its first occurrence is returned.
+  3. If the element is not found within the specified range (or the entire list), a ValueError is raised.
+
+•  Arguments:
+
+  •  element: The element to search for.
+  •  start (optional): The index to start the search from (default is 0).
+  •  end (optional): The index to end the search at (default is the end of the list). Note that the search will not include the element at the end index.
+
+•  Example (Python):
+
+    my_list = ["apple", "banana", "cherry", "apple"]
+    index1 = my_list.index("banana")  # index1 will be 1
+
+    index2 = my_list.index("apple", 1) # index2 will be 3 (starts search at index 1)
+
+    try:
+        index3 = my_list.index("grape") # Raises ValueError
+    except ValueError:
+        print("Element not found")
+
+    try:
+       index4 = my_list.index("apple", 1, 3) #Raises ValueError
+    except ValueError:
+      print("Element apple not found between index 1 and 3")
+
+2. list.count(element)
+
+•  Explanation: The count() method returns the number of times a specified element appears in the list.
+
+•  Purpose: To determine how many times a particular value occurs in a list.
+
+•  How it Works:
+
+  1. The method iterates through the list.
+  2. For each element in the list, it checks if it's equal to the element being searched for.
+  3. It increments a counter for each match.
+  4. The final count is returned.
+
+•  Example (Python):
+
+
+▌Important Considerations
+
+•  The method returns the index of the first occurrence only.
+•  A ValueError is raised if the element is not found.
+•  The start and end arguments allow you to restrict the search to a specific portion of the list. Note that the end index isn't inclusive in search.
+
+```
+
+    my_list = [1, 2, 2, 3, 2, 4]
+    count = my_list.count(2)  # count will be 3
+
+    my_list = ["apple", "banana", "apple", "apple"]
+    count2 = my_list.count("apple") # count2 will be 3
+
+    count3 = my_list.count("grape") # count3 will be 0
+
+3. list.__mul__(n) / list * n (List Multiplication)
+
+•   Explanation: While not a traditional method called with dot notation, the __mul__ method (invoked via the * operator) allows you to multiply a list by an integer n. This creates a new list that contains n repetitions of the original list. The original list is not modified.
+
+•   Purpose: To efficiently create a new list by repeating an existing list a specified number of times. Useful for initializing lists with repeating patterns or for creating data structures with a specific size and initial content.
+
+•   How it Works:
+
+    1.  The operator * is used with a list and an integer n.
+    2.  The __mul__ method (behind the scenes) is invoked.
+    3.  A new list is created.
+    4. The elements of the original list are appended n times to the new list.
+    5.  The new list is returned.
+
+•   Important Notes:
+
+    •   The original list is not modified.
+    •   If n is 0, an empty list ([]) is returned.
+    •   If n is negative, an empty list ([]) is returned.
+    * The original elements themselves aren't copied, but reused. Modifications to a mutable element in the base list will be reflected in every repetition in the new list.
+
+•   Example (Python):
+
+    
+    my_list = [1, 2, 3]
+    repeated_list = my_list * 3  # repeated_list will be [1, 2, 3, 1, 2, 3, 1, 2, 3]
+
+    empty_list = my_list * 0  # empty_list will be []
+
+    negative_list = my_list * -2 # negative_list will be []
+
+    list_with_mutable = [[1, 2], 3]
+    repeated_mutable_list = list_with_mutable * 2
+    repeated_mutable_list[0][0] = 5
+
+    print(repeated_mutable_list) # [[5, 2], 3, [5, 2], 3]
+    print(list_with_mutable) #[[5, 2], 3]
+    
