@@ -179,3 +179,106 @@
     my_dict2 = dict.fromkeys(keys, "Unknown") # my_dict2 will be {"name": "Unknown", "age": "Unknown", "city": "Unknown"}
 
     my_dict3 = dict.fromkeys("abc", 0) #my_dict3 will be {'a': 0, 'b': 0, 'c': 0}
+# Third Commit
+
+1. dict.values()
+
+•  Explanation: The values() method returns a view object that displays a list of all the values in the dictionary. This view object is dynamic, meaning that if you change the dictionary, the view object will reflect those changes. The order of the values in the view object is guaranteed to match the insertion order in Python 3.7+.
+
+•  Purpose: To efficiently access and iterate over the values in a dictionary.
+
+•  How it Works:
+
+  1. The method creates a view object that represents the dictionary's values.
+  2. The view object provides a dynamic view of the values, reflecting any changes made to the dictionary.
+  3. The order of the values corresponds to the insertion order (Python 3.7+).
+
+•  Important Notes:
+
+  •  The returned object is a view, not a static list.
+  •  Changes to the dictionary are immediately reflected in the view.
+  •  To get a static list of the values, you can use list(dict.values()).
+  •  The order of values is guaranteed to match insertion order in Python 3.7+.
+
+•  Example (Python):
+
+    my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+
+    values_view = my_dict.values()
+
+    print(values_view)  # Output: dict_values(['Alice', 30, 'New York'])
+
+    my_dict["country"] = "USA"  # Add a new key-value pair
+
+    print(values_view)  # Output: dict_values(['Alice', 30, 'New York', 'USA']) (view is updated)
+
+    values_list = list(my_dict.values()) # get a static list
+
+    print(values_list) #['Alice', 30, 'New York', 'USA']
+
+2. dict.items()
+
+•  Explanation: The items() method returns a view object that displays a list of a dictionary's key-value pairs (items) as tuples. This view object is dynamic, meaning that if you change the dictionary, the view object will reflect those changes. The order of the items is guaranteed to match the insertion order in Python 3.7+.
+
+•  Purpose: To efficiently iterate over both keys and values in a dictionary simultaneously.
+
+•  How it Works:
+
+  1. The method creates a view object that represents the dictionary's items.
+  2. Each item is represented as a tuple (key, value).
+  3. The view object provides a dynamic view, reflecting any changes made to the dictionary.
+  4. The order of the items is guaranteed to match the insertion order in Python 3.7+.
+
+•  Important Notes:
+
+  •  The returned object is a view, not a static list.
+  •  Changes to the dictionary are immediately reflected in the view.
+  •  To get a static list of the items, you can use list(dict.items()).
+  * You can unpack the view into key, value pairs.
+  •  The order of values is guaranteed to match the insertion order in Python 3.7+.
+
+•  Example (Python):
+
+    my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+
+    items_view = my_dict.items()
+
+    print(items_view)  # Output: dict_items([('name', 'Alice'), ('age', 30), ('city', 'New York')])
+
+    my_dict["country"] = "USA"
+
+    print(items_view)  # Output: dict_items([('name', 'Alice'), ('age', 30), ('city', 'New York'), ('country', 'USA')])
+
+    for key, value in items_view:
+      print(f"{key}: {value}")
+
+3. dict.keys()
+
+•  Explanation: The keys() method returns a view object that displays a list of all the keys in the dictionary. This view object is dynamic, meaning that if you change the dictionary, the view object will reflect those changes. The order of the keys in the view object is guaranteed to match the insertion order in Python 3.7+.
+
+•  Purpose: To efficiently access and iterate over the keys in a dictionary.
+
+•  How it Works:
+
+  1. The method creates a view object that represents the dictionary's keys.
+  2. The view object provides a dynamic view of the keys, reflecting any changes made to the dictionary.
+  3. The order of the keys corresponds to the insertion order (Python 3.7+).
+
+•  Important Notes:
+
+  •  The returned object is a view, not a static list.
+  •  Changes to the dictionary are immediately reflected in the view.
+  •  To get a static list of the keys, you can use list(dict.keys()).
+  •  The order of keys is guaranteed to match the insertion order in Python 3.7+.
+
+•  Example (Python):
+
+    my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+
+    keys_view = my_dict.keys()
+
+    print(keys_view)  # Output: dict_keys(['name', 'age', 'city'])
+
+    my_dict["country"] = "USA"  # Add a new key-value pair
+
+    print(keys_view)  # Output: dict_keys(['name', 'age', 'city', 'country']) (view is updated)
