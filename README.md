@@ -282,3 +282,90 @@
     my_dict["country"] = "USA"  # Add a new key-value pair
 
     print(keys_view)  # Output: dict_keys(['name', 'age', 'city', 'country']) (view is updated)
+# Fourth commit
+
+1. dict.clear() (Revisited with timing)
+
+•  Explanation: The clear() method removes all items from the dictionary, making it an empty dictionary ({}). It modifies the original dictionary directly. It is typically used for memory management but can be slower for very large dictionaries.
+
+•  Purpose: To efficiently empty a dictionary, removing all of its contents. However, it's important to be aware of potential performance implications for very large dictionaries.
+
+•  How it Works:
+
+  1. The method iterates through the dictionary.
+  2. It removes each key-value pair from the dictionary.
+  3. The dictionary becomes an empty dictionary: {}.
+  4. The list is modified in-place.
+
+•  Important Notes:
+
+  •  The dictionary is modified in-place.
+
+•  Example (Python):
+
+    my_dict = {"name": "Alice", "age": 30, "city": "New York"}
+    my_dict.clear()
+    print(my_dict)  # Output: {}
+
+2. dict.__contains__(key) or key in dict (Checking Key Existence)
+
+•  Explanation: While not a typical method call with dot notation, the __contains__ method (invoked via the in operator) checks if a specific key exists in the dictionary.
+
+•  Purpose: To efficiently determine whether a key is present in a dictionary.
+
+•  How it Works:
+
+  1. The in operator is used with a key and a dictionary.
+  2. The __contains__ method (behind the scenes) is invoked.
+  3. If the key exists in the dictionary, it returns True; otherwise, it returns False.
+
+•  Important Notes:
+
+  * This method only checks for the existence of the key, not the value.
+
+•  Example (Python):
+
+?, [4/8/2025 2:08 PM]
+    my_dict = {"name": "Alice", "age": 30}
+    has_name = "name" in my_dict  # has_name will be True
+    has_city = "city" in my_dict  # has_city will be False
+
+3. dict.copy() (Revisited and Expanded)
+
+•  Explanation: The copy() method creates a shallow copy of a dictionary. This means a new dictionary object is created, but the keys and values themselves are references to the same objects as in the original dictionary. This has important implications when the values are mutable.
+
+•  Purpose: To create a copy of a dictionary while understanding the difference between shallow and deep copies, especially when dealing with mutable values.
+
+•  How it Works:
+
+  1. A new dictionary is created.
+  2. For each key-value pair in the original dictionary, a reference to the key and a reference to the value are copied into the new dictionary.
+
+•  Important Notes:
+
+  •  If the values are immutable (e.g., numbers, strings, tuples), changes to the values in the copy will not affect the original dictionary, and vice versa.
+  •  If the values are mutable (e.g., lists, dictionaries), changes to those values in the copy will affect the original dictionary, and vice versa, because both dictionaries are referencing the same mutable objects.
+  •  To avoid this, use copy.deepcopy() from the copy module to create a deep copy, where all objects are copied recursively.
+
+•  Example (Python):
+
+    import copy
+
+    # Shallow copy
+    original_dict = {"name": "Alice", "age": 30, "address": ["123 Main St"]}
+    copied_dict = original_dict.copy()
+
+    copied_dict["name"] = "Bob"  # Only affects copied_dict
+    copied_dict["address"][0] = "456 Oak Ave"  # Affects BOTH dictionaries!
+
+    print(original_dict)  # Output: {'name': 'Alice', 'age': 30, 'address': ['456 Oak Ave']}
+    print(copied_dict)    # Output: {'name': 'Bob', 'age': 30, 'address': ['456 Oak Ave']}
+
+    # Deep copy
+    original_dict = {"name": "Alice", "age": 30, "address": ["123 Main St"]}
+    deep_copied_dict = copy.deepcopy(original_dict)
+
+    deep_copied_dict["address"][0] = "789 Pine Ln"  # Only affects deep_copied_dict
+
+    print(original_dict) # {'name': 'Alice', 'age': 30, 'address': ['123 Main St']}
+    print(deep_copied_dict)  # {'name': 'Alice', 'age': 30, 'address': ['789 Pine Ln']}
