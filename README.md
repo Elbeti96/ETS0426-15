@@ -264,3 +264,95 @@
     print(difference_set2) # {1, 2}
 
     print(set1) # Original set not modified
+# Fourth commit
+10. set.symmetric_difference(other) or set ^ other
+
+•  Explanation: The symmetric_difference() method returns a new set containing the elements that are in either the original set or the other set, but not in both. It's the opposite of intersection. You can also use the ^ operator as a shorthand.
+
+•  Purpose: To find the elements that are unique to either of two sets.
+
+•  How it Works:
+
+  1. A new set is created.
+  2. The method iterates through the elements of the original set.
+  3. If an element is not found in the other set, it's added to the new set.
+  4. The method iterates through the elements of the other set.
+  5. If an element is not found in the original set, it's added to the new set.
+  6. The new set is returned.
+
+•  Arguments:
+
+  •  other: The other set.
+
+•  Example (Python):
+
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6, 7}
+
+    symmetric_difference_set = set1.symmetric_difference(set2)
+    print(symmetric_difference_set)  # Output: {1, 2, 6, 7}
+
+    symmetric_difference_set2 = set1 ^ set2
+    print(symmetric_difference_set2) # {1, 2, 6, 7}
+
+    print(set1) # Original sets are not modified.
+
+11. set.update(*others) or set |= other | ...
+
+•  Explanation: The update() method modifies the original set by adding all the elements from the other set(s). This is an in-place operation. You can also use the |= operator as a shorthand.
+
+•  Purpose: To efficiently add multiple elements from other sets into an existing set.
+
+•  How it Works:
+
+  1. The method iterates through the elements of each other set.
+  2. For each element, it adds it to the original set.
+  3. The original set is modified directly.
+
+•  Arguments:
+
+  •  *others: One or more sets to add to the original set.
+
+•  Example (Python):
+
+    set1 = {1, 2, 3}
+    set2 = {3, 4, 5}
+    set3 = {5, 6, 7}
+
+    set1.update(set2, set3)
+    print(set1)  # Output: {1, 2, 3, 4, 5, 6, 7}
+
+    set4 = {8,9,10}
+    set1 |= set4
+    print(set1) #{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+12. set.intersection_update(*others) or set &= other & ...
+
+•  Explanation: The intersection_update() method modifies the original set, keeping only the elements that are common to the original set and all of the other sets. You can also use the &= operator as a shorthand.
+
+•  Purpose: To efficiently reduce a set to only the elements it shares with other sets.
+
+•  How it Works:
+
+  1. The method iterates through the elements of the original set.
+  2. For each element, it checks if it is also present in all of the other sets.
+  3. If the element is not present in all of the other sets, it is removed from the original set.
+  4. The original set is modified directly.
+
+•  Arguments:
+
+  •  *others: One or more sets to intersect with the original set.
+
+•  Example (Python):
+
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6}
+    set3 = {4, 5, 6, 7}
+
+    set1.intersection_update(set2, set3)
+    print(set1)  # Output: {4, 5}
+
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6}
+    set1 &= set2
+    print(set1) #{3, 4, 5}
