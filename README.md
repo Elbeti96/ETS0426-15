@@ -356,3 +356,34 @@
     set2 = {3, 4, 5, 6}
     set1 &= set2
     print(set1) #{3, 4, 5}
+# Fifth Commit
+13. set.difference_update(*others) or set -= other | ...
+
+•  Explanation: The difference_update() method modifies the original set by removing the elements that are present in any of the other sets. You can also use the -= operator as a shorthand.
+
+•  Purpose: To efficiently remove multiple elements from a set based on the contents of other sets.
+
+•  How it Works:
+
+  1. The method iterates through the elements of each other set.
+  2. For each element in the other set, the method attempts to remove it from the original set.
+  3. Because discard() is used internally, no KeyError is raised if an element is not found.
+  4. The original set is modified directly.
+
+•  Arguments:
+
+  •  *others: One or more sets to subtract from the original set.
+
+•  Example (Python):
+
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6}
+    set3 = {5, 6, 7}
+
+    set1.difference_update(set2, set3)
+    print(set1)  # Output: {1, 2}
+
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6}
+    set1 -= set2
+    print(set1) # {1, 2}
